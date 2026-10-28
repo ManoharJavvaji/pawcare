@@ -40,14 +40,6 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_EC114FB3C6CA40B9B2A1F4CEC808D35F }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7BE5FF1183884105BEA4C4B99F077250 }}
 
-      - name: Enable build automation
-        uses: azure/cli@v2
-        with:
-          inlineScript: |
-            az webapp config appsettings set \
-              --name pawcare \
-              --resource-group rg-lab-manohar \
-              --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 
       - name: Deploy ZIP package
         uses: azure/webapps-deploy@v3
